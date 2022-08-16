@@ -1,0 +1,157 @@
+insert all
+into GENRE (genre) VALUES ('Unknown')
+into GENRE (genre) VALUES ('Fantasy')
+into GENRE (genre) VALUES ('Science Fiction')
+into GENRE (genre) VALUES ('Dystopian')
+into GENRE (genre) VALUES ('Action Adventure')
+into GENRE (genre) VALUES ('Mystery')
+into GENRE (genre) VALUES ('Horror')
+into GENRE (genre) VALUES ('Thriller Suspense')
+into GENRE (genre) VALUES ('Historical Fiction')
+into GENRE (genre) VALUES ('Romance')
+into GENRE (genre) VALUES ('Women’s Fiction')
+into GENRE (genre) VALUES ('Contemporary Fiction')
+into GENRE (genre) VALUES ('Literary Fiction')
+into GENRE (genre) VALUES ('Magical Realism')
+into GENRE (genre) VALUES ('Graphic Novel')
+into GENRE (genre) VALUES ('Short Story')
+into GENRE (genre) VALUES ('Young Adult')
+into GENRE (genre) VALUES ('New Adult')
+into GENRE (genre) VALUES ('Children’s')
+into GENRE (genre) VALUES ('Memoir Autobiography')
+into GENRE (genre) VALUES ('Biography')
+into GENRE (genre) VALUES ('Food Drink')
+into GENRE (genre) VALUES ('Art Photography')
+into GENRE (genre) VALUES ('Self-help')
+into GENRE (genre) VALUES ('History')
+into GENRE (genre) VALUES ('Travel')
+into GENRE (genre) VALUES ('True Crime')
+into GENRE (genre) VALUES ('Humor')
+into GENRE (genre) VALUES ('Essays')
+into GENRE (genre) VALUES ('Guide / How-to ')
+into GENRE (genre) VALUES ('Religion Spirituality')
+into GENRE (genre) VALUES ('Humanities Social Sciences')
+into GENRE (genre) VALUES ('Parenting Families')
+into GENRE (genre) VALUES ('Science Technology')
+select 1 from dual;
+
+
+
+    UPDATE BOOKS
+    SET
+    books.copies_available = BOOKS.COPIES_AVAILABLE + 1
+    WHERE
+    books.bookid = BOOKID;
+CREATE TABLE BOOKS 
+(
+  BOOKID NUMBER(*, 0) NOT NULL 
+, TITLE VARCHAR2(100 BYTE) NOT NULL 
+, AUTHORID NUMBER(*, 0) NOT NULL 
+, PAGECOUNT NUMBER(*, 0) NOT NULL 
+, COPIES NUMBER(*, 0) DEFAULT 1 
+, COPIES_AVAILABLE NUMBER(*, 0) DEFAULT 1 
+, ISBN VARCHAR2(20 BYTE) NOT NULL 
+, YEAR_OF_PUP NUMBER 
+, CONSTRAINT BOOKS_PK PRIMARY KEY 
+  (
+    BOOKID 
+  )
+  USING INDEX 
+  (
+      CREATE UNIQUE INDEX BOOKS_PK ON BOOKS (BOOKID ASC) 
+      LOGGING 
+      TABLESPACE USERS 
+      PCTFREE 10 
+      INITRANS 2 
+      STORAGE 
+      ( 
+        INITIAL 65536 
+        NEXT 1048576 
+        MINEXTENTS 1 
+        MAXEXTENTS UNLIMITED 
+        BUFFER_POOL DEFAULT 
+      ) 
+      NOPARALLEL 
+  )
+  ENABLE
+);
+ALTER TABLE BOOKS
+ADD CONSTRAINT BOOKS_FK1 FOREIGN KEY
+(
+  AUTHORID 
+)
+REFERENCES AUTHORS
+(
+  AUTHORID 
+)
+ENABLE;
+
+ALTER TABLE BOOKS
+ADD CONSTRAINT BOOKS_CHK1 CHECK 
+(copies >= copies_available)
+ENABLE;
+
+ALTER TABLE BOOKS
+ADD CONSTRAINT BOOKS_CHK2 CHECK 
+(COPIES_AVAILABLE >= 0)
+ENABLE;
+
+
+SELECT bookid, LISTAGG(genre.genreid, ', ')
+WITHIN GROUP (ORDER BY bookid) AS "GENRES"
+FROM book_genre
+INNER JOIN genre ON genre.genreid = book_genre.genreid
+ORDER BY book_genre.bookid;
+
+
+SELECT
+    books.bookid,
+    books.title,
+    book_genre.genreid,
+    book_genre.bookid AS bookid1
+FROM
+         books
+    INNER JOIN book_genre ON book_genre.bookid = books.bookid
+
+
+
+SELECT bookid, LISTAGG(genreid, ', ')
+WITHIN GROUP (ORDER BY bookid) AS "TEST"
+FROM book_genre
+GROUP BY BOOKID;
+
+SELECT
+    book_genre.bookid,
+    genre.genre,
+    book_genre.genreid
+FROM
+    book_genre
+    INNER JOIN genre ON book_genre.genreid = genre.genreid
+    order by bookid;
+
+SELECT BOOKID, book_genre.genreid, GENRE
+FROM book_genre
+INNER JOIN genre ON genre.genreid = book_genre.genreid
+ORDER BY book_genre.bookid
+
+
+SELECT
+    book_genre.bookid,
+    genre.genre
+--    book_genre.genreid
+FROM
+    book_genre
+    INNER JOIN genre ON book_genre.genreid = genre.genreid
+    where genre.genreid = 5
+    order by bookid
+
+SELECT
+    book_genre.bookid,
+    books.title,
+    genre.genre
+FROM
+    book_genre
+    INNER JOIN genre ON book_genre.genreid = genre.genreid
+    INNER JOIN books ON book_genre.bookid = books.bookid
+    where genre.genreid = 5
+    order by bookid

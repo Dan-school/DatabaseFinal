@@ -1,0 +1,37 @@
+bookid,title,authorID,pagecount,year of publication,isbn,copies,copiesA
+1,The Hunger Games,26,374,2008,439023483,10,10
+2,Harry Potter and the Philosopher's Stone,18,223,1997,439554934,16,16
+3,Twilight,4,387,2005,316015849,14,14
+4,To Kill a Mockingbird,15,336,1960,61120081,8,8
+5,The Great Gatsby,2,200,1925,743273567,20,20
+6,The Fault in Our Stars,3,313,2012,525478817,14,14
+7,The Hobbit or There and Back Again,9,366,1937,618260307,13,13
+8,The Catcher in the Rye,7,277,1951,316769177,16,16
+9,Angels & Demons ,6,736,2000,1416524797,17,17
+10,Pride and Prejudice,14,279,1813,679783261,15,15
+11,The Kite Runner ,11,371,2003,1594480001,11,11
+12,Divergent,23,487,2011,62024035,13,13
+13,Nineteen Eighty-Four,27,339,1949,451524934,7,7
+14,Animal Farm: A Fairy Story,27,180,1945,452284244,18,18
+15,Het Achterhuis: Dagboekbrieven 14 juni 1942 - 1 augustus 1944,19,303,1947,553296981,18,18
+16,Män som hatar kvinnor,5,566,2005,307269752,14,14
+17,Catching Fire,26,391,2009,439023491,20,20
+18,Harry Potter and the Prisoner of Azkaban,18,435,1999,043965548X,12,12
+19, The Fellowship of the Ring,9,527,1954,618346252,11,11
+20,Mockingjay,26,398,2010,439023513,13,13
+21,Harry Potter and the Order of the Phoenix,18,870,2003,439358078,6,6
+22,The Lovely Bones,22,372,2002,316166685,19,19
+23,Harry Potter and the Chamber of Secrets,18,341,1998,439064864,10,10
+24,Harry Potter and the Goblet of Fire,18,734,2000,439139600,10,10
+25,Harry Potter and the Deathly Hallows,18,759,2007,545010225,5,5
+26,The Da Vinci Code,6,341,2003,307277674,17,17
+27,Harry Potter and the Half-Blood Prince,18,489,2005,439785960,9,9
+28,Lord of the Flies ,12,182,1954,140283331,9,9
+29,An Excellent conceited Tragedie of Romeo and Juliet,25,128,1595,743477111,16,16
+30,Gone Girl,13,415,2012,297859382,14,14
+31,The Help,10,464,2009,399155341,19,19
+32,Of Mice and Men ,16,103,1937,142000671,16,16
+33,Memoirs of a Geisha,17,503,1997,739326228,9,9
+34,Fifty Shades of Grey,20,356,2011,1612130291,7,7
+35,O Alquimista,8,240,1988,61122416,11,11
+36,The Giver,21,208,1993,385732554,11,11
